@@ -526,7 +526,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkLogin() {
-        if(DataLocal.getIsLogin()==false){
+        if(DataLocal.getIsLogin()!=false){
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivityForResult(intent,REQUEST_CODE);
         }
