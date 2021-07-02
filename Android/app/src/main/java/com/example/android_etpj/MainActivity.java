@@ -101,17 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
         checkLogin();
 
-        currentRole = Role.valueOf(DataLocal.getUserRole());
-
-        if (currentRole==Role.ADMIN){
-            user = DataLocal.getAdmin();
-        }
-        else if (currentRole==Role.TRAINER){
-            user = DataLocal.getTrainer();
-        }
-        else  {
-            user = DataLocal.getTrainee();
-        }
         setNavigationView();
 
     }
@@ -540,6 +529,18 @@ public class MainActivity extends AppCompatActivity {
         if(DataLocal.getIsLogin()==false){
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivityForResult(intent,REQUEST_CODE);
+        }
+
+        currentRole = Role.valueOf(DataLocal.getUserRole());
+
+        if (currentRole==Role.ADMIN){
+            user = DataLocal.getAdmin();
+        }
+        else if (currentRole==Role.TRAINER){
+            user = DataLocal.getTrainer();
+        }
+        else  {
+            user = DataLocal.getTrainee();
         }
 
         if(DataLocal.getIsLogin()==true){
